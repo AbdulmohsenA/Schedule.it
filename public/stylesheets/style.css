@@ -1,0 +1,56 @@
+@import "./button.css";
+@import "./card.css";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+h1, h2 {
+  text-align: center;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #00182D !important;
+
+  /*background-image: url('./../images/background.svg');*/
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  font: 20px 'Noto Sans', sans-serif;
+
+  background-color: #00182D !important;
+
+  background-image: url('./../images/background.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+label {
+  font-size: 32px;
+}
+
+.form-control{
+  font-size: 20px;
+  font-style: bold;
+  font-family: 'Noto Sans';
+  font-weight: 800;
+}
+
+.background-dark-l{
+  background-color: #03213bd0  !important;
+  backdrop-filter: saturate(200%) blur(30px);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.qrcodecard {
+  display: inline;
+  width: 250px;
+  height: 250px;
+  outline: solid 3px #0d2338;
+}
+

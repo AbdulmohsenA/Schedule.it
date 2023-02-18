@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>QRCode & Schedule</title>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--meta(name='viewport' content='width-->
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+  <% let datesArray = []%>
+  <% dates.forEach(element => { %>
+   <% datesArray.push(new Date(element.reserved).toLocaleDateString('en-US')) %>
+  <% }) %>
+  <nav class="navbar navbar-expand-lg navbar-dark background-dark-l shadow-sm mb-5">
+    <div class="container">
+      <a class="navbar-brand text-white" href="/">Scheduleit <i class="fa fa-calendar" style="color:white;"></i></a>
+      <div id="topNavbar" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Page content goes here -->
+    <!-- Use of blocks in Pug are converted to divs in HTML -->
+    <div class="body">
+      <div class="card rounded background-dark-l text-white">
+        <div class="card-body">
+
+          <h1 class="card-title">QR Code <i class="fa fa-qrcode"></i></h1>
+          <%let color='8ba4cb' , bgcolor='05162d' %>
+            <%let link='http://192.168.0.184:3000/insert/' + guestUrl %>
+            <div class="qrcodecard">
+              <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=<%= link %>&color=<%=color%>&bgcolor=<%=bgcolor%>"
+              alt="Please Disable your Adblock to show the QR Code">
+            </div>
+        </div>
+      </div>
+
+      <div class="card rounded background-dark-l text-white mt-5">
+        <div class="card-body">
+          <h1 class="card-title"><%= title%> </h1>
+          <h1 class="card-text">Statistics <i class="fa fa-dashboard"></i></h1>
+          <div>
+            <div style="width: 100%; height: 300px;" class="center" id="parent">
+            <canvas id="myChart"></canvas>
+          </div>
+        
+          <script>
+        
+            var getDaysArray = function(start, end) {
+            for(var arr=[],dt=new Date(start); dt<=new Date(end); dt.setDate(dt.getDate()+1)){
+                arr.push(new Date(dt).toLocaleDateString('en-US'));
+            }
+            return arr;
+            };
+            
+            let startDate = '<%=startDate%>'
+            let endDate = '<%=endDate%>'
+            let datesObj = '<%= datesArray %>'.split(",")
+        
+            let dateRange = getDaysArray(new Date(startDate), new Date(endDate))
+            let occurernces = Array(dateRange.length).fill(0)
+            
+            for (let j = 0; j < dateRange.length; j++) {
+              occurernces[j] = datesObj.filter(x => x == dateRange[j]).length
+            }
+        
+            function makeChart() {
+              var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: dateRange,
+                datasets: [{
+                  data: occurernces,
+                  label: 'Hide',
+                  backgroundColor: [
+						'rgba(54, 162, 235, 0.2)',
+					],
+					borderColor: [
+						'rgba(54, 162, 235, 1)'
+					],
+                  borderWidth: 2
+                }],
+              },
+            });
+            }
+            
+            makeChart()
+            setTimeout(() => {
+              location.reload()
+            }, 10000)
+          </script>
+        
+        </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer"></div>
+
+
+
+  <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
+</html>

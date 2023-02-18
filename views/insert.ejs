@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="bg">
+
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--meta(name='viewport' content='width-->
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+
+</head>
+
+<body class="bg">
+  <nav class="navbar navbar-expand-lg navbar-dark background-dark-l shadow-sm mb-5">
+    <div class="container">
+      <a class="navbar-brand text-white" href="/">Scheduleit <i class="fa fa-calendar" style="color:white;"></i></a>
+
+      <div id="topNavbar" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Page content goes here -->
+    <!-- Use of blocks in Pug are converted to divs in HTML -->
+    <div class="body">
+      <div class="card rounded background-dark-l text-white mt-5">
+
+        <div class="card-body">
+
+          <h1 class="card-title">
+            <%= title %>
+          </h1>
+          <form method="post" id="form">
+            <div class="form-row">
+
+              <label class="text-center" for="date">Date: </label>
+              <input class='form-control' type="date" id="dates" name="dates" placeholder="dates" required>
+            </div>
+          </form>
+
+          <div class="center">
+            <button class="card-button btn btn-lg btn-color mt-5 mb-3" form="form">Submit</button>
+          </div>
+          <script>
+            flatpickr("#dates", {
+              mode: "multiple",
+              dateFormat: "Y-m-d",
+              conjunction: ",",
+              enable: [
+                {
+                  from: "<%=startDate%>>",
+                  to: "<%=endDate%>"
+                }
+              ]
+            });
+          </script>
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="footer"></div>
+
+
+
+  <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</body>
+
+</html>

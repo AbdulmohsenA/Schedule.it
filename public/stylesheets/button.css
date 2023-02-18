@@ -1,0 +1,16 @@
+button{
+  background-color: #1B4979 !important;
+  color: white !important;
+  font-size: 1.5em !important;
+  padding: 10px 20px !important;
+}
+
+  button:hover {
+    box-shadow: rgba(255, 255, 255, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+    background-color: white;
+  }
+  button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }

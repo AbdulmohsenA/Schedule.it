@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Scheduleit</title>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--meta(name='viewport' content='width-->
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<body>
+
+  <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="js/addDats.js"></script>
+</body>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark background-dark-l shadow-sm mb-5">
+    <div class="container">
+      <a class="navbar-brand text-white" href="/">Scheduleit <i class="fa fa-calendar" style="color:white;"></i></a>
+      <div id="topNavbar" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <!-- Page content goes here -->
+    <!-- Use of blocks in Pug are converted to divs in HTML -->
+    <div class="body">
+      <div class="card rounded background-dark-l text-white">
+        <div class="card-body">
+
+          <h1 class="card-title">Scheduleit <i class='fa fa-calendar' style='color:white;'></i></h1>
+          <p class="card-text my-5"> Scheduleit is a tool to help people to schedule a suitable date. by seeing the
+            dates that students are busy in and dates that students are free in.</p>
+
+          <form method="post" id="form">
+            <div class="form-row">
+              <div class="col">
+                <label for="title">Prompt: </label>
+                <input class="form-control" type="text" id="title" name="title" placeholder="e.g. When is you quizzes?"
+                  required>
+              </div>
+              <div class="col">
+                <label for="date">Start date: </label>
+                <input class="form-control" type="date" id="dateStart" name="dateStart" placeholder="Select the start date"required>
+              </div>
+              <div class="col">
+                <label for="date">End date: </label>
+                <input class="form-control" type="date" id="dateEnd" name="dateEnd" placeholder="Select the end date"required>
+              </div>
+            </div>
+          </form>
+
+          <div class="center">
+            <a href="./schedule"><button class="card-button btn btn-lg btn-color mt-5 mb-3 button " form="form">Create a
+                Form</button></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer"></div>
+  </div>
+
+</body>
+
+</html>
