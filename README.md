@@ -1,3 +1,5 @@
-npx nodemon
+to run 
 
-reload every 2 seconds
+```console
+node ./bin/www
+```
