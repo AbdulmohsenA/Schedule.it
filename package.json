@@ -19,6 +19,7 @@
     "qrcodejs": "^1.0.0",
     "request": "^2.88.2",
     "require": "^0.4.4",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "sqlite3": "^5.1.4"
   }
 }
