@@ -7,6 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!--meta(name='viewport' content='width-->
+  <%let color='8ba4cb' , bgcolor='05162d' %>
+  <%let link='https://scheduleit.herokuapp.com/insert/' + guestUrl %>
+  <meta property="og:image" content="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=<%= link %>&color=<%=color%>&bgcolor=<%=bgcolor%>">
+  <meta property="og:title" content="Scheduleit: <%= title%> ">
+  <meta property="og:description" content="Take this form and its results anywhere you want.">
   <link rel="stylesheet" href="stylesheets/style.css">
   <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -38,8 +43,7 @@
         <div class="card-body">
 
           <h1 class="card-title">QR Code <i class="fa fa-qrcode"></i></h1>
-          <%let color='8ba4cb' , bgcolor='05162d' %>
-            <%let link='https://scheduleit.herokuapp.com/insert/' + guestUrl %>
+          
             <div class="qrcodecard">
               <img
               src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=<%= link %>&color=<%=color%>&bgcolor=<%=bgcolor%>"
