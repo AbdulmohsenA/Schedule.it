@@ -25,9 +25,21 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+#index-navbar{
+  margin-bottom: 3rem;
+}
+
+#idea-text{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 
 label {
-  font-size: 32px;
+  font-size: 28px;
+}
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .form-control{
@@ -52,5 +64,33 @@ label {
   width: 250px;
   height: 250px;
   outline: solid 3px #0d2338;
+}
+@media screen and (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+  label{
+    font-size: 20px;
+  }
+  button{
+    font-size: 1.3em !important;
+  }
+  #index-card{
+    padding-bottom: 5px;
+  }
+  #idea-text{
+    font-size: 1.1em;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .card-title{
+    font-size: 2.5em;
+  }
+  #index-navbar{
+    margin-bottom: 1rem;
+  }
+  .col{
+    margin-bottom: 0.4rem;
+  }
 }
 
