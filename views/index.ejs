@@ -10,7 +10,10 @@
   <meta property="og:image" content="https://res.cloudinary.com/dd55xpl6b/image/upload/v1676899334/Og_scch0z.jpg">
   <meta property="og:title" content="Scheduleit">
   <meta property="og:description" content="A tool to help you choosing a suitable date for an exam.">
-  <link rel="stylesheet" href="stylesheets/style.css">
+  <% if (lang == 'ar') { %>
+    <link rel="stylesheet" href="/stylesheets/style_ar.css">
+  <% } %>
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -28,11 +31,9 @@
   <nav class="navbar navbar-expand-lg navbar-dark background-dark-l shadow-sm" id="index-navbar">
     <div class="container">
       <a class="navbar-brand text-white" href="/">Scheduleit <i class="fa fa-calendar" style="color:white;"></i></a>
-      <div id="topNavbar" class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active"></li>
-        </ul>
-      </div>
+      <% let langHref= "/en"; if (lang == 'en') {langHref="/ar"} else {langHref="/en"} %>
+      <% let langIcon= "English"; if (lang == 'en') {langIcon="عربي"} else {langIcon="English"} %>
+      <a class="navbar-brand text-white" href="<%= langHref%>"> <%= langIcon%></a>
     </div>
   </nav>
   <div class="container">
@@ -41,30 +42,27 @@
         <div class="card-body">
 
           <h1 class="card-title">Scheduleit <i class='fa fa-calendar' style='color:white;'></i></h1>
-          <p class="card-text" id="idea-text"> Scheduleit is a tool to help people to schedule a suitable date. by seeing the
-            dates that guests are busy in or the dates they are free in.</p>
-
+          <p class="card-text" id="idea-text"> <%= __('idea-message') %></p>
           <form method="post" id="form">
             <div class="form-row">
               <div class="col">
-                <label for="title">Prompt: </label>
-                <input class="form-control" type="text" id="title" name="title" placeholder="e.g. When are your quizzes?"
+                <label for="title"><%= __('prompt') %> </label>
+                <input class="form-control" type="text" id="title" name="title" placeholder="<%= __('prompt-placeholder') %>"
                   required>
               </div>
               <div class="col">
-                <label for="date">Start date: </label>
+                <label for="date"><%= __('start-date') %> </label>
                 <input class="form-control" type="date" id="dateStart" name="dateStart" placeholder="Select the start date"required>
               </div>
               <div class="col">
-                <label for="date">End date: </label>
-                <input class="form-control" type="date" id="dateEnd" name="dateEnd" placeholder="Select the end date"required>
+                <label for="date"><%= __('end-date') %> </label>
+                <input class="form-control" type="date" id="dateEnd" name="dateEnd" placeholder="Select the end date" required>
               </div>
             </div>
           </form>
 
           <div class="center">
-            <a href="./schedule"><button class="card-button btn btn-lg btn-color mt-5 mb-3 button " form="form">Create a
-                Form</button></a>
+            <a href="./schedule"><button class="card-button btn btn-lg btn-color mt-5 mb-3 button " form="form"><%= __('form-create') %></button></a>
           </div>
         </div>
       </div>

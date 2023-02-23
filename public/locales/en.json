@@ -1,0 +1,16 @@
+{
+    "idea-message": "Scheduleit is a tool to help people to schedule a suitable date. by seeing the dates that guests are busy in or the dates they are free in.",
+    "prompt": "Prompt:",
+    "end-date":"End date:",
+    "start-date": "Start date:",
+    "form-create": "Create a Form",
+    "prompt-placeholder": "e.g. When are your quizzes?",
+    "submit":"submit",
+    "dates":"Dates:",
+    "date-select-message":"You can choose multiple dates",
+    "QR-Code":"QR Code",
+    "statistics":"Statistics",
+    "hide":"Hide",
+    "thanks": "Thanks",
+    "response-recorded":"Your vote has been recorded successfuly."
+  }

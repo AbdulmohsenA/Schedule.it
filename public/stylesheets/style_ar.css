@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200;400&display=swap');
+.form-row{
+    flex-direction: row-reverse;
+}
+.form-control{
+    text-align: right;
+}
+body{
+    text-align: right;
+}
+.card-title, .card-text{
+    direction: rtl;
+}
+body{
+    font-family: 'Changa', sans-serif;
+}

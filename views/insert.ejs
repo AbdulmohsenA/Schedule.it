@@ -10,6 +10,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!--meta(name='viewport' content='width-->
+  <% if (lang == 'ar') { %>
+    <link rel="stylesheet" href="/stylesheets/style_ar.css">
+  <% } %>
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -47,13 +50,13 @@
           <form method="post" id="form">
             <div class="form-row">
 
-              <label class="text-center" for="date">Date: </label>
-              <input class='form-control' type="date" id="dates" name="dates" placeholder="dates" required>
+              <label class="text-center" for="date"><%= __('dates') %> </label>
+              <input class='form-control' type="date" id="dates" name="dates" placeholder="<%= __('date-select-message') %>" required>
             </div>
           </form>
 
           <div class="center">
-            <button class="card-button btn btn-lg btn-color mt-5 mb-3" form="form">Submit</button>
+            <button class="card-button btn btn-lg btn-color mt-5 mb-3" form="form"><%= __('submit') %></button>
           </div>
           <script>
             flatpickr("#dates", {

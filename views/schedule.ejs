@@ -8,11 +8,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!--meta(name='viewport' content='width-->
   <%let color='8ba4cb' , bgcolor='05162d' %>
-  <%let link='https://scheduleit.herokuapp.com/insert/' + guestUrl %>
+  <%let link='https://scheduleit.herokuapp.com/'+lang+'/insert/' + guestUrl %>
   <meta property="og:image" content="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=<%= link %>&color=<%=color%>&bgcolor=<%=bgcolor%>">
   <meta property="og:title" content="Scheduleit: <%= title%> ">
   <meta property="og:description" content="Take this form and its results anywhere you want.">
-  <link rel="stylesheet" href="stylesheets/style.css">
+  <% if (lang == 'ar') { %>
+    <link rel="stylesheet" href="/stylesheets/style_ar.css">
+  <% } %>
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -42,7 +45,7 @@
       <div class="card rounded background-dark-l text-white">
         <div class="card-body">
 
-          <h1 class="card-title">QR Code <i class="fa fa-qrcode"></i></h1>
+          <h1 class="card-title"><%= __('QR-Code') %> <i class="fa fa-qrcode"></i></h1>
           
             <div class="qrcodecard">
               <img
@@ -55,7 +58,7 @@
       <div class="card rounded background-dark-l text-white mt-5">
         <div class="card-body">
           <h1 class="card-title"><%= title%> </h1>
-          <h1 class="card-text">Statistics <i class="fa fa-dashboard"></i></h1>
+          <h1 class="card-text"><%= __('statistics') %> <i class="fa fa-dashboard"></i></h1>
           <div>
             <div style="width: 100%; height: 300px;" class="center" id="parent">
             <canvas id="myChart"></canvas>
@@ -89,7 +92,7 @@
                 labels: dateRange,
                 datasets: [{
                   data: occurernces,
-                  label: 'Hide',
+                  label: "<%= __('hide') %>",
                   backgroundColor: [
 						'rgba(54, 162, 235, 0.2)',
 					],
