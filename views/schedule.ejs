@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!--meta(name='viewport' content='width-->
   <%let color='8ba4cb' , bgcolor='05162d' %>
-  <%let link='https://scheduleit.herokuapp.com/'+lang+'/insert/' + guestUrl %>
+  <%let link='https://scheduleit.up.railway.app/'+lang+'/insert/' + guestUrl %>
   <meta property="og:image" content="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=<%= link %>&color=<%=color%>&bgcolor=<%=bgcolor%>">
   <meta property="og:title" content="Scheduleit: <%= title%> ">
   <meta property="og:description" content="Take this form and its results anywhere you want.">
@@ -48,9 +48,7 @@
           <h1 class="card-title"><%= __('QR-Code') %> <i class="fa fa-qrcode"></i></h1>
           
             <div class="qrcodecard">
-              <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=<%= link %>&color=<%=color%>&bgcolor=<%=bgcolor%>"
-              alt="Please Disable your Adblock to show the QR Code">
+              <canvas id="qr-code"></canvas>
             </div>
         </div>
       </div>
@@ -63,7 +61,8 @@
             <div style="width: 100%; height: 300px;" class="center" id="parent">
             <canvas id="myChart"></canvas>
           </div>
-        
+          
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
           <script>
         
             var getDaysArray = function(start, end) {
@@ -83,7 +82,6 @@
             for (let j = 0; j < dateRange.length; j++) {
               occurernces[j] = datesObj.filter(x => x == dateRange[j]).length
             }
-        
             function makeChart() {
               var ctx = document.getElementById('myChart').getContext('2d');
             var chart = new Chart(ctx, {
@@ -109,6 +107,14 @@
             setTimeout(() => {
               location.reload()
             }, 10000)
+            var qr = new QRious({
+      element: document.getElementById('qr-code'),
+      value:  'https://scheduleit.up.railway.app/<%= lang%>/insert/<%= guestUrl %>',
+      size: 250,
+      foreground: '#8ba4cb',
+      backgroundAlpha: 0.2,
+      background: '#05162d'
+    });
           </script>
         
         </div>
@@ -118,7 +124,6 @@
 
   </div>
   <div class="footer"></div>
-
 
 
   <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>

@@ -92,5 +92,9 @@ label {
   .col{
     margin-bottom: 0.4rem;
   }
+  .form-control{
+    flex-basis: 100%;
+    width: 100%;
+    flex-grow: 1;
+  }
 }
-
